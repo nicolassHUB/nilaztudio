@@ -1,0 +1,215 @@
+Aqui está o seu CSS limpo e organizado. Removi todos os comentários explicativos internos e mantive apenas os blocos de comentários principais estruturados para dividir perfeitamente cada componente da página:
+
+```css
+/* Reset & Estilos Gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #050508;
+    color: #f3f4f6;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 26px 26px;
+    background-position: center;
+    pointer-events: none;
+    z-index: -2;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.04) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Container Principal */
+.box-link {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    z-index: 1;
+}
+
+/* Perfil */
+.desc-perfil {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 18px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.desc-perfil h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.desc-perfil .bio {
+    font-size: 15.5px;
+    color: #9ca3af;
+    line-height: 1.5;
+    max-width: 380px;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+/* Redes Sociais */
+.social-icons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.08);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.25), inset 0 0 8px rgba(168, 85, 247, 0.15);
+}
+
+/* Card de Status */
+.status-card {
+    background: rgba(13, 13, 18, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.35), transparent);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-emoji {
+    font-size: 30px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.status-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.card-body .highlight {
+    color: #c084fc;
+    font-weight: 400;
+}
+
+/* Animações */
+.stagger-item {
+    opacity: 0;
+    transform: translateX(-24px);
+    filter: blur(8px);
+    animation: fadeEntrada 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.card-header.stagger-item {
+    animation-delay: 0.2s;
+}
+
+.card-body p.stagger-item:nth-child(1) {
+    animation-delay: 0.35s;
+}
+
+.card-body p.stagger-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeEntrada {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+```
